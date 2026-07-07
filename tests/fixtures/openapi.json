@@ -10,21 +10,7 @@
         "summary": "Get user by ID",
         "responses": {
           "200": {
-            "description": "Successful user retrieval",
-            "content": {
-              "application/json": {
-                "examples": {
-                  "get_user_by_id_res": {
-                    "value": {
-                      "id": 12345,
-                      "name": "Jane Doe",
-                      "email": "jane.doe@example.com",
-                      "tier": "premium"
-                    }
-                  }
-                }
-              }
-            }
+            "description": "Successful user retrieval"
           }
         }
       }
