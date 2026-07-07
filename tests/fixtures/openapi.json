@@ -1,0 +1,33 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Mock Integration API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/v1/users/{userId}": {
+      "get": {
+        "summary": "Get user by ID",
+        "responses": {
+          "200": {
+            "description": "Successful user retrieval",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "get_user_by_id_res": {
+                    "value": {
+                      "id": 12345,
+                      "name": "Jane Doe",
+                      "email": "jane.doe@example.com",
+                      "tier": "premium"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

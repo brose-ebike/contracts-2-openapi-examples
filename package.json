@@ -4,7 +4,8 @@
     "description": "Inject spring cloud contract examples into openapi specs",
     "main": "out/main/index.js",
     "scripts": {
-        "build": "esbuild src/index.ts --bundle --platform=node --target=node24 --outfile=out/main/index.js"
+        "build": "esbuild src/index.ts --bundle --platform=node --target=node24 --outfile=out/main/index.js",
+        "test:local": "pnpm run build && node tests/main.js"
     },
     "keywords": [],
     "author": "Yamaha Motor eBike Systems GmbH",

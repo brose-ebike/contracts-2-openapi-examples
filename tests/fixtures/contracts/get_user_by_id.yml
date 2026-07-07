@@ -1,0 +1,10 @@
+request:
+  method: GET
+  url: /api/v1/users/12345
+response:
+  status: 200
+  body:
+    id: 12345
+    name: "Jane Doe"
+    email: "jane.doe@example.com"
+    tier: "premium"
