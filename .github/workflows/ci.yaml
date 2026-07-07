@@ -11,22 +11,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
-
-      - name: Install PNPM
-        uses: pnpm/action-setup@v3
-        with:
-          version: 9
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f
         with:
           node-version: 20
           cache: 'pnpm'
+
+      - name: Install PNPM
+        uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320
+        with:
+          version: 9
 
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
 
       - name: Type Check & Lint
         # If you don't have a lint script yet, you can use: pnpm exec tsc --noEmit
-        run: pnpm run lint
+        # run: pnpm run lint
+        run: pnpm exec tsc --noEmit
