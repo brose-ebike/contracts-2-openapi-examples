@@ -8,6 +8,7 @@ on:
 
 jobs:
   build-and-commit:
+    name: Build Distribution Bundle and Commit Changes
     runs-on: ubuntu-latest
     permissions:
       contents: write # Required to allow pushing back to the repository

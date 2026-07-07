@@ -8,6 +8,7 @@ on:
 
 jobs:
   lint:
+    name: Type Check & Lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
