@@ -1,0 +1,14 @@
+name: 'contracts-2-openapi-examples'
+description: 'Recursively injects Spring Cloud Contract examples into an OpenAPI documentation file.'
+author: 'Yamaha Motor eBike Systems GmbH'
+inputs:
+  openapi-path:
+    description: 'The path to the OpenAPI JSON/YAML file'
+    required: true
+  contracts-dir:
+    description: 'The path to the directory containing contract tests'
+    required: true
+    default: './src/contractTest/resources/contracts'
+runs:
+  using: 'node24'
+  main: 'out/main/index.js'

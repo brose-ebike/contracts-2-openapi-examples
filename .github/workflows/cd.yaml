@@ -1,0 +1,48 @@
+name: CD
+
+on:
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - 'out/**' # Prevents infinite loop when the action commits its own dist file
+
+jobs:
+  build-and-commit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Required to allow pushing back to the repository
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install PNPM
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build Distribution Bundle
+        run: pnpm run build
+
+      - name: Commit and Push Changes
+        run: |
+          # Configure Git Bot
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          
+          # Check if out/main/index.js has actual differences
+          if ! git diff --exit-code out/main/index.js; then
+            git add out/main/index.js
+            git commit -m "chore: automated build optimization for compiled distribution"
+            git push origin HEAD:${{ github.ref }}
+          else
+            echo "No compiled changes detected. Skipping commit."
+          fi

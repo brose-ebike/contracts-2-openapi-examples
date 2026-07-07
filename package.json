@@ -1,0 +1,19 @@
+{
+    "name": "contracts-2-openapi-examples",
+    "version": "1.0.0",
+    "description": "Inject spring cloud contract examples into openapi specs",
+    "main": "out/main/index.js",
+    "scripts": {
+        "build": "esbuild src/index.ts --bundle --platform=node --target=node24 --outfile=out/main/index.js"
+    },
+    "keywords": [],
+    "author": "Yamaha Motor eBike Systems GmbH",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "@actions/core": "^1.10.1",
+        "js-yaml": "^4.1.0"
+    },
+    "devDependencies": {
+        "esbuild": "^0.28.1"
+    }
+}
