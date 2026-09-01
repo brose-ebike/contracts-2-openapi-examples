@@ -12,7 +12,7 @@
     "license": "Apache-2.0",
     "dependencies": {
         "@actions/core": "^3.0.1",
-        "js-yaml": "^5.2.1"
+        "js-yaml": "^5.4.1"
     },
     "devDependencies": {
         "@types/node": "^26.1.0",
